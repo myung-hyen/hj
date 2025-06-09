@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+:root {
+    --primary-color: #003366; 
+    --secondary-color: #A9A9A9;
+    --accent-color: #FF8C00; 
+    --bg-light: #F8F8F8;
+    --text-dark: #333333;
+    --text-light: #FFFFFF;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 1200px;
+}
+
+/* Header & Navigation */
+.nav-link {
+    @apply text-gray-600 font-medium hover:text-primary transition-colors duration-300 relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+.nav-link.active {
+    @apply text-primary;
+}
+
+/* Buttons */
+.btn-primary {
+    @apply bg-primary text-white font-bold py-2 px-6 rounded-lg transition-transform duration-300 hover:scale-105;
+}
+.btn-secondary {
+    @apply bg-gray-200 text-primary font-bold py-2 px-6 rounded-lg transition-transform duration-300 hover:scale-105;
+}
+.btn-accent {
+    @apply bg-accent text-white font-bold py-3 px-8 rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg;
+}
+.filter-btn {
+    @apply bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-full text-sm font-medium transition-colors duration-300 hover:bg-primary hover:text-white hover:border-primary;
+}
+.filter-btn.active {
+    @apply bg-primary text-white border-primary;
+}
+
+
+/* Hero Section */
+.hero-section {
+    background-image: url('https://images.unsplash.com/photo-1605651202774-6d9734d9d136?q=80&w=1546&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    min-height: 60vh;
+}
+
+/* Section Titles */
+.section-title {
+    @apply text-3xl md:text-4xl font-bold text-primary;
+}
+.section-subtitle {
+    @apply mt-4 text-lg text-gray-600 max-w-2xl mx-auto;
+}
+
+/* Cards */
+.service-card {
+    @apply bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+    border-left: 4px solid var(--primary-color);
+}
+.feature-card {
+    @apply bg-white p-8 rounded-lg shadow-md transition-transform duration-300 hover:scale-105;
+}
+.story-card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between h-full transition-transform duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+/* Forms */
+.form-input {
+    @apply mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm;
+}
+.form-input-file {
+    @apply block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100;
+}
